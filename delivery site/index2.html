@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NoshNest - Menu</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="icon" href="https://th.bing.com/th?id=OIP.ZZsn6lD6PCjocBzx1tuu1QHaEo&w=316&h=197&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2">
+  <style>
+    .order, .menu-section, .cart-section, .checkout-section, .filter-section {
+      padding: 20px;
+    }
+    .card {
+      margin: 10px;
+    }
+    footer {
+      background-color: rgb(121, 4, 4);
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="./index.html">NoshNest</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link active" href="#menu">MENU</a></li>
+          <li class="nav-item"><a class="nav-link" href="#checkout">CHECKOUT</a></li>
+          <li class="nav-item"><a class="nav-link" href="#status">ORDER STATUS</a></li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search">
+          <button class="btn btn-outline-success" type="submit" style="background: #000; color: aliceblue;" >Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Filter Section -->
+  <div class="filter-section">
+    <h4>Filter Restaurants</h4>
+    <select class="form-select mb-3" aria-label="Cuisine">
+      <option selected>Filter by Cuisine</option>
+      <option value="4">Italian</option>
+      <option value="4">Mexican</option>
+      <option value="4">Indian</option>
+      <option value="4">Japanese</option>
+    </select>
+    <select class="form-select mb-3" aria-label="Rating">
+      <option selected>Filter by Rating</option>
+      <option value="1">5+ Stars</option>
+      <option value="2">4+ Stars</option>
+    </select>
+    <select class="form-select" aria-label="Price">
+      <option selected>Filter by Price</option>
+      <option value="1">Under ₹200</option>
+      <option value="2">₹200 - ₹500</option>
+      <option value="3">₹500 - ₹700</option>
+      <option value="3">₹1000+</option>
+    </select>
+    <p>
+    <div>
+    <button class="btn btn-primary" id="apply-filter-btn" style="background: #000;">Apply Filters</button>
+    </div>
+    </p>
+  </div>
+
+  <!-- Restaurant Menu Section -->
+  <div class="menu-section" id="menu">
+    <h2>Menu - Italiana</h2>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card">
+          <img src="image2\Bruschetta al Pomodoro.jpeg" class="card-img-top" alt="Bruschetta al Pomodoro">
+          <div class="card-body">
+            <h5 class="card-title">Antipasti</h5>
+            <p class="card-text">Bruschetta al Pomodoro - ₹250</p>
+            <p class="rating">⭐ 4.2 / 5</p>
+            <button class="btn btn-success" onclick="addToCart('Antipasti', 250)" style="background: #000;">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <img src="image2\spp.webp" class="card-img-top" alt="Spaghetti Carbonara " style="height: 295px;">
+          <div class="card-body">
+            <h5 class="card-title">Primi Piatti</h5>
+            <p class="card-text">Spaghetti Carbonara - ₹350</p>
+            <p class="rating">⭐ 4.6 / 5</p>
+            <button class="btn btn-success" onclick="addToCart('Primi Piatti', 300)" style="background: #000;">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <img src="image2\Pollo alla Parmigiana.jpg" class="card-img-top" alt="Pollo alla Parmigiana ">
+          <div class="card-body">
+            <h5 class="card-title">Secondi Piatti </h5>
+            <p class="card-text">Pollo alla Parmigiana - ₹450</p>
+            <p class="rating">⭐ 4.7 / 5</p>
+            <button class="btn btn-success" onclick="addToCart('Secondi Piatti ', 300)" style="background: #000;">Add to Cart</button>
+          </div>         
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card">
+      <img src="image2\Quattro Formaggi.webp" class="card-img-top" alt="Quattro Formaggi">
+      <div class="card-body">
+        <h5 class="card-title">Pizza</h5>
+        <p class="card-text">Quattro Formaggi - ₹600</p>
+        <p class="rating">⭐ 4.5 / 5</p>
+        <button class="btn btn-success" onclick="addToCart('Pizza', 300)" style="background: #000;">Add to Cart</button>
+      </div>         
+</div>
+</div>
+<div class="col-md-4">
+    <div class="card">
+      <img src="image2\Tiramisu.jpg" class="card-img-top" alt="Tiramisu">
+      <div class="card-body">
+        <h5 class="card-title">Dolci</h5>
+        <p class="card-text">Tiramisu - ₹250</p>
+        <p class="rating">⭐ 4.8 / 5</p>
+        <button class="btn btn-success" onclick="addToCart('Dolci', 300)" style="background: #000;">Add to Cart</button>
+      </div>         
+</div>
+</div>
+<div class="col-md-4">
+    <div class="card">
+      <img src="image2\Cappuccino.jpeg" class="card-img-top" alt="Cappuccino">
+      <div class="card-body">
+        <h5 class="card-title">Bevande</h5>
+        <p class="card-text">Cappuccino - ₹370</p>
+        <p class="rating">⭐ 4.4 / 5</p>
+        <button class="btn btn-success" onclick="addToCart('Bevande', 300)" style="background: #000;">Add to Cart</button>
+      </div>         
+</div>
+</div>
+
+<!-- Mexican Items -->
+<div class="menu-section" id="menu">
+    <h2>Menu - Mexican</h2>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card">
+          <img src="image2\Guacamole con Totopos.jpg" class="card-img-top" alt="Guacamole con Totopos">
+          <div class="card-body">
+            <h5 class="card-title">Entradas</h5>
+            <p class="card-text">Guacamole con Totopos - ₹250</p>
+            <p class="rating">⭐ 4.3 / 5</p>
+            <button class="btn btn-success" onclick="addToCart('Entradas', 250)" style="background: #000;">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <img src="image2\Burrito Grande.jpeg" class="card-img-top" alt="Burrito Grande" style="height: 260px;">
+          <div class="card-body">
+            <h5 class="card-title">Platos Principales</h5>
+            <p class="card-text">Burrito Grande - ₹440</p>
+            <p class="rating">⭐ 4.5 / 5</p>
+            <button class="btn btn-success" onclick="addToCart('Platos Principales', 440)" style="background: #000;">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <img src="image2\chiler.jpg" class="card-img-top" alt="Chiles Rellenos" style="height: 260px;">
+          <div class="card-body">
+            <h5 class="card-title">Especialidades</h5>
+            <p class="card-text">Chiles Rellenos - ₹780</p>
+            <p class="rating">⭐ 4.6 / 5</p>
+            <button class="btn btn-success" onclick="addToCart('Especialidades', 780)" style="background: #000;">Add to Cart</button>
+          </div>         
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card">
+      <img src="image2\Mexican Rice.jpeg" class="card-img-top" alt="Mexican Rice" style="height: 280px;">
+      <div class="card-body">
+        <h5 class="card-title">Acompañamientos</h5>
+        <p class="card-text">Mexican Rice - ₹570</p>
+        <p class="rating">⭐ 4.2 / 5</p>
+        <button class="btn btn-success" onclick="addToCart('Acompañamientos', 570)" style="background: #000;">Add to Cart</button>
+      </div>         
+</div>
+</div>
+<div class="col-md-4">
+    <div class="card">
+      <img src="image2\tc.jpg" class="card-img-top" alt="Tres Leches Cake" style="height: 280px;">
+      <div class="card-body">
+        <h5 class="card-title">Postres</h5>
+        <p class="card-text">Tres Leches Cake - ₹350</p>
+        <p class="rating">⭐ 4.7 / 5</p>
+        <button class="btn btn-success" onclick="addToCart('Postres', 350)" style="background: #000;">Add to Cart</button>
+      </div>         
+</div>
+</div>
+<div class="col-md-4">
+    <div class="card">
+      <img src="image2\horchata.webp" class="card-img-top" alt="Horchata" style="height: 280px;">
+      <div class="card-body">
+        <h5 class="card-title">Bebidas</h5>
+        <p class="card-text">Horchata - ₹200</p>
+        <p class="rating">⭐ 4.1 / 5</p>
+        <button class="btn btn-success" onclick="addToCart('Bebidas', 200)" style="background: #000;">Add to Cart</button>
+      </div>         
+</div>
+</div>
+
+<!-- Indian Items -->
+<div class="menu-section" id="menu">
+    <h2>Menu - Indian</h2>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card">
+          <img src="image2\samosa.jpeg" class="card-img-top" alt="Samosa" style="height: 300px;">
+          <div class="card-body">
+            <h5 class="card-title">Starters</h5>
+            <p class="card-text">Samosa - ₹50</p>
+            <p class="rating">⭐ 4.3 / 5</p>
+            <button class="btn btn-success" onclick="addToCart('Starters', 50)" style="background: #000;">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <img src="image2\Chole Bhature.jpg" class="card-img-top" alt="Chole Bhature" style="height: 300px;">
+          <div class="card-body">
+            <h5 class="card-title">Main Course – Vegetarian</h5>
+            <p class="card-text">Chole Bhature - ₹300</p>
+            <p class="rating">⭐ 4.6 / 5</p>
+            <button class="btn btn-success" onclick="addToCart('Main Course – Vegetarian', 300)" style="background: #000;">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <img src="image2\Butter Chicken.jpeg" class="card-img-top" alt="Butter Chicken" style="height: 300px;">
+          <div class="card-body">
+            <h5 class="card-title">Main Course – Non-Vegetarian</h5>
+            <p class="card-text">Butter Chicken - ₹300</p>
+            <p class="rating">⭐ 4.9 / 5</p>
+            <button class="btn btn-success" onclick="addToCart('Main Course – Non-Vegetarian', 300)"style="background: #000;">Add to Cart</button>
+          </div>         
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card">
+      <img src="image2\Lucknowi-Biryani.png" class="card-img-top" alt="Chicken Biryani" style="height: 300px;">
+      <div class="card-body">
+        <h5 class="card-title">Rice</h5>
+        <p class="card-text">Chicken Biryani - ₹300</p>
+        <p class="rating">⭐ 4.8 / 5</p>
+        <button class="btn btn-success" onclick="addToCart('Rice', 300)" style="background: #000;">Add to Cart</button>
+      </div>         
+</div>
+</div>
+<div class="col-md-4">
+    <div class="card">
+      <img src="image2\Gulab Jamun.jpeg" class="card-img-top" alt="Gulab Jamun" style="height: 300px;">
+      <div class="card-body">
+        <h5 class="card-titl">Desserts</h5>
+        <p class="card-text">Gulab Jamun - ₹300</p>
+        <p class="rating">⭐ 4.7 / 5</p>
+        <button class="btn btn-success" onclick="addToCart('Desserts', 300)" style="background: #000;">Add to Cart</button>
+      </div>         
+</div>
+</div>
+<div class="col-md-4">
+    <div class="card">
+      <img src="image2\Mango Lassi.webp" class="card-img-top" alt="Mango Lassi" style="height: 300px;">
+      <div class="card-body">
+        <h5 class="card-title">Beverages</h5>
+        <p class="card-text">Mango Lassi - ₹300</p>
+        <p class="rating">⭐ 4.5 / 5</p>
+        <button class="btn btn-success" onclick="addToCart('Beverages', 300)" style="background: #000;">Add to Cart</button>
+      </div>         
+</div>
+</div>
+
+<!-- Japnese Items -->
+<div class="menu-section" id="menu">
+    <h2>Menu - Japanese</h2>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card">
+          <img src="image2\Gyoza.jpeg" class="card-img-top" alt="Gyoza" style="height: 300px;">
+          <div class="card-body">
+            <h5 class="card-title">Appetizers</h5>
+            <p class="card-text">Gyoza - ₹490</p>
+            <p class="rating">⭐ 4.4 / 5</p>
+            <button class="btn btn-success" onclick="addToCart('Appetizers', 490)" style="background: #000;">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <img src="image2\Nigiri.jpeg" class="card-img-top" alt="Nigiri" style="height: 300px;">
+          <div class="card-body">
+            <h5 class="card-title">Sushi & Sashimi</h5>
+            <p class="card-text">Nigiri - ₹600</p>
+            <p class="rating">⭐ 4.6 / 5</p>
+            <button class="btn btn-success" onclick="addToCart('Sushi & Sashimi', 600)" style="background: #000;">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <img src="image2\Ramen.jpg" class="card-img-top" alt="Ramen" style="height: 300px;">
+          <div class="card-body">
+            <h5 class="card-title">Noodles</h5>
+            <p class="card-text">Ramen - ₹550</p>
+            <p class="rating">⭐ 4.7 / 5</p>
+            <button class="btn btn-success" onclick="addToCart('Noodles', 550)" style="background: #000;">Add to Cart</button>
+          </div>         
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card">
+      <img src="image2\Tempura Platter.jpg" class="card-img-top" alt="Tempura Platter" style="height: 300px;">
+      <div class="card-body">
+        <h5 class="card-title">Main Dish</h5>
+        <p class="card-text">Tempura Platter - ₹890</p>
+        <p class="rating">⭐ 4.5 / 5</p>
+        <button class="btn btn-success" onclick="addToCart('Main Dish', 890)" style="background: #000;">Add to Cart</button>
+      </div>         
+</div>
+</div>
+<div class="col-md-4">
+    <div class="card">
+      <img src="image2\Dorayaki.jpeg" class="card-img-top" alt="Dorayaki" style="height: 300px;">
+      <div class="card-body">
+        <h5 class="card-title">Dezāto</h5>
+        <p class="card-text">Dorayaki - ₹350</p>
+        <p class="rating">⭐ 4.3 / 5</p>
+        <button class="btn btn-success" onclick="addToCart('Dezāto', 350)" style="background: #000;">Add to Cart</button>
+      </div>         
+</div>
+</div>
+<div class="col-md-4">
+    <div class="card">
+      <img src="image2\Matcha Latte.jpg" class="card-img-top" alt="Matcha Latte" style="height: 300px;">
+      <div class="card-body">
+        <h5 class="card-title">Dorinku</h5>
+        <p class="card-text">Matcha Latte - ₹300</p>
+        <p class="rating">⭐ 4.2 / 5</p>
+        <button class="btn btn-success" onclick="addToCart('Dorinku', 300)" style="background: #000;">Add to Cart</button>
+      </div>         
+</div>
+</div>
+
+
+  <!-- Cart Section -->
+  <div class="cart-section" id="cart">
+    <h2>Your Cart</h2>
+    <div id="cart-items"></div>
+    <h4>Total: ₹<span id="cart-total">0</span></h4>
+  </div>
+
+  <!-- Checkout Section -->
+  <div class="checkout-section" id="checkout">
+    <h2>Checkout</h2>
+    <form>
+      <div class="mb-3">
+        <label for="address" class="form-label">Address</label>
+        <input type="text" class="form-control" id="address" required>
+      </div>
+      <div class="mb-3">
+        <label for="contact" class="form-label">Contact Info</label>
+        <input type="tel" class="form-control" id="contact" required>
+      </div>
+      <div class="mb-3">
+        <label for="payment" class="form-label">Payment Method</label>
+        <select class="form-select" id="payment">
+          <option>Cash on Delivery</option>
+          <option>UPI</option>
+          <option>Card</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="promo" class="form-label">Promo Code</label>
+        <input type="text" class="form-control" id="promo">
+      </div>
+      <button type="submit" class="btn btn-primary" style="background: #000;">Place Order</button>
+    </form>
+  </div>
+
+  <!-- Order Status -->
+  <div class="order-status" id="status">
+    <h2>Order Status</h2>
+    <ul class="list-group">
+      <li class="list-group-item">Order Placed</li>
+      <li class="list-group-item">Preparing Food</li>
+      <li class="list-group-item">Out for Delivery</li>
+      <li class="list-group-item">Delivered</li>
+    </ul>
+  </div>
+<p>
+  <div>
+<!-- Footer -->
+<footer style="background-color: rgb(31, 6, 6); color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center;">
+    <!-- Left Section -->
+    <div style="flex: 1; text-align: left; padding-left: 20px;">
+      <h1 style="font-size: 1.5rem; margin-bottom: 10px;">NoshNest</h1>
+      <p style="font-size: 0.9rem; margin-bottom: 5px;">Dharampeth, Nagpur</p>
+      <p style="font-size: 0.9rem; margin-bottom: 5px;">Contact: <a href="tel:+918329850382" style="color: white; text-decoration: none;">+91 83298 50382</a></p>
+      <p style="font-size: 0.9rem; margin-bottom: 5px;">Email: <a href="mailto:info@noshnest.com" style="color: white; text-decoration: none;">info@noshnest.com</a></p>
+      <p style="font-size: 0.9rem;">Website: <a href="https://www.noshnest.com" target="_blank" style="color: white; text-decoration: none;">www.noshnest.com</a></p>
+    </div>
+  
+    <!-- Right Section -->
+    <div style="flex: 1; text-align: right; padding-right: 20px;">
+      <!-- Social Media Icons -->
+      <div style="margin-bottom: 10px; text-align: right;">
+        <a href="https://www.facebook.com/yumbites" target="_blank" style="margin: 0 10px; text-decoration: none;">
+          <img src="image\facebook-icon.png" alt="Facebook" style="width: 30px; height: 30px;">
+        </a>
+        <a href="https://www.instagram.com/yumbites" target="_blank" style="margin: 0 10px; text-decoration: none;">
+          <img src="image\instagram-icon.webp" alt="Instagram" style="width: 50px; height: 50px;">
+        </a>
+        <a href="https://twitter.com/yumbites" target="_blank" style="margin: 0 10px; text-decoration: none;">
+            <img src="image\twitter-icon.webp" alt="Twitter" style="width: 40px; height: 40px;">
+        </a>
+      </div>
+      <!-- Copyright -->
+      <div style="font-size: 0.8rem;">
+        &copy; 2024 NoshNest. All rights reserved.
+      </div>
+    </div>
+  </footer>
+  </div>
+  </p>
+
+  <!-- Scripts -->
+  <script>
+    let cart = [];
+    function addToCart(item, price) {
+      cart.push({ item, price });
+      renderCart();
+    }
+    function renderCart() {
+      const cartItemsDiv = document.getElementById('cart-items');
+      cartItemsDiv.innerHTML = '';
+      let total = 0;
+      cart.forEach((c, index) => {
+        total += c.price;
+        cartItemsDiv.innerHTML += `<div class='cart-item'>${c.item} - ₹${c.price} <button onclick='removeItem(${index})' class='btn btn-sm btn-danger'>Remove</button></div>`;
+      });
+      document.getElementById('cart-total').innerText = total;
+    }
+    function removeItem(index) {
+      cart.splice(index, 1);
+      renderCart();
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
